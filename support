@@ -1,1 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support — Betoku</title>
+  <meta name="description" content="Help and support for Betoku, the number puzzle where you bet on every digit. Answers to common questions and how to contact us.">
+  <meta property="og:title" content="Betoku Support">
+  <meta property="og:description" content="Answers to common questions and how to contact the Betoku team.">
+  <meta property="og:url" content="https://betoku.app/support.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://betoku.app/betoku-social-1200x630.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0f1424">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23f5b942'/><circle cx='50' cy='50' r='32' fill='none' stroke='%230f1424' stroke-width='6' stroke-dasharray='10 8'/><text x='50' y='64' font-size='40' font-family='Arial' font-weight='bold' text-anchor='middle' fill='%230f1424'>B</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1424;
+      --bg-2: #161d33;
+      --card: #1b2340;
+      --line: #2a3459;
+      --text: #eef1fb;
+      --muted: #9aa3c4;
+      --gold: #f5b942;
+      --gold-2: #ffd77a;
+      --green: #3ddc97;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .narrow { max-width: 760px; margin: 0 auto; }
 
+    /* Nav */
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 22px; letter-spacing: -0.02em; text-decoration: none; }
+    .logo-chip {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--gold); border: 4px dashed var(--bg); outline: 3px solid var(--gold);
+      display: grid; place-items: center; color: var(--bg); font-size: 14px; font-weight: 800;
+    }
+    .nav-links { display: flex; gap: 26px; font-size: 15px; color: var(--muted); }
+    .nav-links a { text-decoration: none; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.current { color: var(--text); }
+
+    /* Page header */
+    .page-head { padding: 56px 0 40px; }
+    .eyebrow {
+      display: inline-block; font-size: 13px; font-weight: 600;
+      color: var(--gold); background: rgba(245,185,66,.1); border: 1px solid rgba(245,185,66,.3);
+      padding: 6px 12px; border-radius: 999px; margin-bottom: 22px;
+    }
+    h1 { font-size: clamp(36px, 5vw, 54px); line-height: 1.08; letter-spacing: -0.035em; font-weight: 800; }
+    h1 span { color: var(--gold); }
+    .lead { font-size: 19px; color: var(--muted); margin-top: 18px; max-width: 600px; }
+
+    /* Contact card */
+    .contact {
+      background: linear-gradient(160deg, var(--card), var(--bg-2));
+      border: 1px solid var(--line); border-radius: 22px;
+      padding: 32px; display: flex; gap: 24px; align-items: center; justify-content: space-between; flex-wrap: wrap;
+      margin-bottom: 64px;
+    }
+    .contact h2 { font-size: 22px; letter-spacing: -0.02em; margin-bottom: 6px; }
+    .contact p { color: var(--muted); font-size: 15.5px; max-width: 440px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 24px; border-radius: 12px; font-weight: 600; font-size: 16px;
+      text-decoration: none; transition: transform .15s, background .2s; white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--gold); color: var(--bg); }
+    .btn-primary:hover { background: var(--gold-2); }
+
+    /* FAQ */
+    .faq-group { margin-bottom: 48px; }
+    .faq-group h2 {
+      font-size: 14px; text-transform: uppercase; letter-spacing: .08em;
+      color: var(--gold); font-weight: 700; margin-bottom: 14px;
+    }
+    details {
+      background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+      margin-bottom: 10px; transition: border-color .2s;
+    }
+    details[open] { border-color: rgba(245,185,66,.4); }
+    summary {
+      list-style: none; cursor: pointer; padding: 18px 22px;
+      font-weight: 600; font-size: 16.5px;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+"; color: var(--gold); font-size: 22px; font-weight: 500; line-height: 1;
+      transition: transform .2s; flex-shrink: 0;
+    }
+    details[open] summary::after { transform: rotate(45deg); }
+    .answer { padding: 0 22px 20px; color: var(--muted); font-size: 15.5px; }
+    .answer p + p { margin-top: 10px; }
+    .answer strong { color: var(--text); font-weight: 600; }
+
+    .tip {
+      background: var(--bg-2); border: 1px solid var(--line); border-radius: 18px;
+      padding: 26px 28px; margin-bottom: 72px; color: var(--muted); font-size: 15.5px;
+    }
+    .tip strong { color: var(--text); }
+
+    footer { padding: 40px 0 56px; color: var(--muted); font-size: 14px; }
+    .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; border-top: 1px solid var(--line); padding-top: 28px; }
+    .foot-links { display: flex; gap: 22px; }
+    .foot-links a { text-decoration: none; }
+    .foot-links a:hover { color: var(--text); }
+
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .page-head { padding-top: 24px; }
+      .contact { padding: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="wrap">
+    <nav>
+      <a href="/" class="logo"><span class="logo-chip">B</span>Betoku</a>
+      <div class="nav-links">
+        <a href="/#how">How it works</a>
+        <a href="/#clock">The clock</a>
+        <a href="/#features">Features</a>
+        <a href="support.html" class="current">Support</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="narrow">
+
+      <div class="page-head">
+        <span class="eyebrow">Help &amp; support</span>
+        <h1>How can we <span>help?</span></h1>
+        <p class="lead">Answers to the most common questions about Betoku. Can't find what you need? Send us an email and we'll get back to you.</p>
+      </div>
+
+      <div class="contact">
+        <div>
+          <h2>Contact support</h2>
+          <p>Tell us what happened, which device you're using and your iOS version. We usually reply within 1–2 business days.</p>
+        </div>
+        <a href="mailto:support@betoku.app?subject=Betoku%20support" class="btn btn-primary">support@betoku.app</a>
+      </div>
+
+      <div class="faq-group">
+        <h2>Playing the game</h2>
+
+        <details>
+          <summary>How do I play Betoku?</summary>
+          <div class="answer">
+            <p>Fill the grid so every row, column and box contains each digit exactly once, just like Sudoku. The twist: before you place a digit, you choose how many chips to bet on it.</p>
+            <p>If the digit is correct, you win your stake times the current multiplier. If it's wrong, you lose the chips you bet.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How does the clock and multiplier work?</summary>
+          <div class="answer">
+            <p>Each digit has its own clock, which restarts every time you place a digit. Place it within <strong>30 seconds</strong> for a <strong>×5</strong> payout, or within the next 30 seconds for <strong>×4</strong>. After that, lower multipliers apply with no time limit.</p>
+            <p>There's never a limit on how long you take to solve a board. Speed only affects how much you win.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What happens if I place a wrong digit?</summary>
+          <div class="answer">
+            <p>You lose the chips you bet on that digit. That's why it pays to bet big only when you're sure, and play it safe when you're not.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Does every puzzle have a solution?</summary>
+          <div class="answer">
+            <p>Yes. Every Betoku board has exactly one solution and can be solved with logic alone, without guessing.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How do the difficulty levels work?</summary>
+          <div class="answer">
+            <p>You start with easy boards and move up to harder ones as you play. Higher levels have fewer starting digits and need more advanced logic.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="faq-group">
+        <h2>Chips, ads &amp; purchases</h2>
+
+        <details>
+          <summary>What happens when I run out of chips?</summary>
+          <div class="answer">
+            <p>You can earn more chips by watching an optional short video ad, or buy a chip pack in the in-app store.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Do my chips carry over between boards?</summary>
+          <div class="answer">
+            <p>Yes. Your chip bank follows you from board to board, so every win builds your stack and every bold miss costs you.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How do I remove ads?</summary>
+          <div class="answer">
+            <p>Open the in-app store and buy <strong>Remove Ads</strong>. It's a one-time purchase that removes ads that play between boards. You can still choose to watch optional video ads to earn bonus chips.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How do I restore my purchases on a new device?</summary>
+          <div class="answer">
+            <p>Sign in with the same Apple ID you used when you made the purchase, open <strong>Settings</strong> in Betoku and tap <strong>Restore Purchases</strong>.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How do I get a refund?</summary>
+          <div class="answer">
+            <p>All purchases are handled by Apple, so refunds are requested through Apple. Go to <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>, sign in, and choose the purchase you want to report.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="faq-group">
+        <h2>Technical &amp; privacy</h2>
+
+        <details>
+          <summary>The app crashes or freezes. What should I do?</summary>
+          <div class="answer">
+            <p>First, make sure you have the latest version of Betoku from the App Store and the latest iOS update. Then close the app completely and open it again.</p>
+            <p>If the problem continues, email us at <a href="mailto:support@betoku.app">support@betoku.app</a> with your device model, iOS version and a short description of what happened.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Which devices are supported?</summary>
+          <div class="answer">
+            <p>Betoku is made for iPhone. Check the App Store listing for the minimum iOS version.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What data does Betoku collect?</summary>
+          <div class="answer">
+            <p>You can read exactly what we collect and why in our <a href="privacy.html">Privacy Policy</a>.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="tip">
+        <strong>Tip for new players:</strong> Start with small bets while you learn the board. Once you spot a digit you're certain of, bet big and place it fast — that's where the ×5 multiplier really pays off.
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="wrap">
+    <div class="foot">
+      <div>© <span id="year">2026</span> Betoku. All rights reserved.</div>
+      <div class="foot-links">
+        <a href="/">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="support.html">Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
