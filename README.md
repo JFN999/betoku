@@ -1,1 +1,211 @@
- 
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Betoku — Bet on every digit</title>
+  <meta name="description" content="Betoku is a number puzzle where you bet chips on every digit you place. Sudoku logic meets the nerve of a high-stakes bid. Coming soon to the App Store.">
+  <meta property="og:title" content="Betoku — Bet on every digit">
+  <meta property="og:description" content="Sudoku logic meets the nerve of a high-stakes bid. Coming soon to the App Store.">
+  <meta property="og:url" content="https://betoku.app">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://betoku.app/betoku-social-1200x630.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://betoku.app/betoku-social-1200x630.jpg">
+  <meta name="theme-color" content="#0f1424">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23f5b942'/><circle cx='50' cy='50' r='32' fill='none' stroke='%230f1424' stroke-width='6' stroke-dasharray='10 8'/><text x='50' y='64' font-size='40' font-family='Arial' font-weight='bold' text-anchor='middle' fill='%230f1424'>B</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1424;
+      --bg-2: #161d33;
+      --card: #1b2340;
+      --line: #2a3459;
+      --text: #eef1fb;
+      --muted: #9aa3c4;
+      --gold: #f5b942;
+      --gold-2: #ffd77a;
+      --green: #3ddc97;
+      --red: #ff6b6b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 0;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 22px; letter-spacing: -0.02em; text-decoration: none; }
+    .logo-chip {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--gold);
+      border: 4px dashed var(--bg);
+      outline: 3px solid var(--gold);
+      display: grid; place-items: center;
+      color: var(--bg); font-size: 14px; font-weight: 800;
+    }
+    .nav-links { display: flex; gap: 26px; font-size: 15px; color: var(--muted); }
+    .nav-links a { text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+
+    /* Hero */
+    .hero {
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px;
+      align-items: center; padding: 56px 0 96px;
+    }
+    .eyebrow {
+      display: inline-block; font-size: 13px; font-weight: 600;
+      color: var(--gold); background: rgba(245,185,66,.1);
+      border: 1px solid rgba(245,185,66,.3);
+      padding: 6px 12px; border-radius: 999px; margin-bottom: 22px;
+    }
+    h1 { font-size: clamp(40px, 6vw, 64px); line-height: 1.05; letter-spacing: -0.035em; font-weight: 800; }
+    h1 span { color: var(--gold); }
+    .lead { font-size: 19px; color: var(--muted); margin: 22px 0 34px; max-width: 520px; }
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 24px; border-radius: 12px; font-weight: 600; font-size: 16px;
+      text-decoration: none; transition: transform .15s, background .2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--gold); color: var(--bg); }
+    .btn-primary:hover { background: var(--gold-2); }
+    .btn-ghost { border: 1px solid var(--line); color: var(--text); }
+    .btn-ghost:hover { background: var(--card); }
+    .soon { font-size: 14px; color: var(--muted); }
+
+    /* Board illustration */
+    .board-card {
+      background: linear-gradient(160deg, var(--card), var(--bg-2));
+      border: 1px solid var(--line); border-radius: 24px;
+      padding: 24px; box-shadow: 0 30px 80px rgba(0,0,0,.45);
+      position: relative;
+    }
+    .board-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; font-size: 14px; }
+    .bank { display: flex; align-items: center; gap: 8px; font-weight: 700; }
+    .mini-chip { width: 18px; height: 18px; border-radius: 50%; background: var(--gold); border: 3px dashed var(--card); outline: 2px solid var(--gold); }
+    .timer { background: rgba(61,220,151,.12); color: var(--green); font-weight: 700; padding: 4px 10px; border-radius: 8px; }
+    .grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+    }
+    .cell {
+      aspect-ratio: 1; border-radius: 12px; background: var(--bg);
+      border: 1px solid var(--line);
+      display: grid; place-items: center;
+      font-size: 26px; font-weight: 700; color: var(--muted);
+      position: relative;
+    }
+    .cell.given { color: var(--text); }
+    .cell.won { color: var(--green); border-color: rgba(61,220,151,.4); }
+    .cell.active { border: 2px solid var(--gold); color: var(--gold); box-shadow: 0 0 0 6px rgba(245,185,66,.12); }
+    .cell .stake {
+      position: absolute; bottom: 5px; right: 6px; font-size: 10px; font-weight: 700;
+      color: var(--gold);
+    }
+    .bet-bar {
+      margin-top: 18px; display: flex; gap: 8px; justify-content: center;
+    }
+    .bet {
+      flex: 1; text-align: center; padding: 10px 0; border-radius: 10px;
+      background: var(--bg); border: 1px solid var(--line);
+      font-weight: 700; font-size: 14px; color: var(--muted);
+    }
+    .bet.on { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+
+    /* Sections */
+    section { padding: 88px 0; }
+    .section-alt { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    h2 { font-size: clamp(30px, 4vw, 42px); letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 14px; }
+    .section-sub { color: var(--muted); font-size: 18px; max-width: 620px; margin-bottom: 48px; }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .step {
+      background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 28px;
+    }
+    .step-num {
+      width: 40px; height: 40px; border-radius: 12px; background: rgba(245,185,66,.12);
+      color: var(--gold); font-weight: 800; display: grid; place-items: center; margin-bottom: 18px;
+    }
+    .step h3 { font-size: 20px; margin-bottom: 8px; }
+    .step p { color: var(--muted); font-size: 15.5px; }
+
+    /* Multipliers */
+    .mult-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .mult {
+      background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+      padding: 26px 20px; text-align: center;
+    }
+    .mult .x { font-size: 44px; font-weight: 800; letter-spacing: -0.03em; }
+    .mult .when { color: var(--muted); font-size: 14.5px; margin-top: 4px; }
+    .mult.hot { border-color: rgba(245,185,66,.5); }
+    .mult.hot .x { color: var(--gold); }
+    .mult.warm .x { color: var(--gold-2); }
+    .note { color: var(--muted); font-size: 15px; margin-top: 24px; text-align: center; }
+
+    /* Features */
+    .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .feature { display: flex; gap: 18px; padding: 24px; border-radius: 18px; border: 1px solid var(--line); background: var(--card); }
+    .feature-icon { font-size: 26px; line-height: 1; flex-shrink: 0; }
+    .feature h3 { font-size: 18px; margin-bottom: 6px; }
+    .feature p { color: var(--muted); font-size: 15px; }
+
+    /* Final CTA */
+    .final {
+      text-align: center; background: linear-gradient(160deg, var(--card), var(--bg-2));
+      border: 1px solid var(--line); border-radius: 28px; padding: 64px 28px;
+    }
+    .final p { color: var(--muted); font-size: 18px; margin: 12px auto 30px; max-width: 520px; }
+
+    footer { padding: 40px 0 56px; color: var(--muted); font-size: 14px; }
+    .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; border-top: 1px solid var(--line); padding-top: 28px; }
+    .foot-links { display: flex; gap: 22px; }
+    .foot-links a { text-decoration: none; }
+    .foot-links a:hover { color: var(--text); }
+
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; padding-top: 24px; gap: 44px; }
+      .steps, .features { grid-template-columns: 1fr; }
+      .mult-row { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+      section { padding: 64px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="wrap">
+    <nav>
+      <a href="/" class="logo"><span class="logo-chip">B</span>Betoku</a>
+      <div class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#clock">The clock</a>
+        <a href="#features">Features</a>
+        <a href="support.html">Support</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div>
+        <span class="eyebrow">Coming soon to iPhone</span>
+        <h1>Bet on every<br><span>digit.</span></h1>
+        <p class="lead">Betoku is a number puzzle with a twist: before you place each digit, you bet chips on it. Get it right and your stake multiplies. Get it wrong and it's gone. Sudoku logic, poker nerve.</p>
+        <div class="cta-row">
+          <a href="#how" class="btn btn-primary">See how it works</a>
+          <span class="soon">App Store launch coming soon</span>
+        </div>
+      </div>
