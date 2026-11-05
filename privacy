@@ -1,1 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Betoku</title>
+  <meta name="description" content="How Betoku handles your data: what we collect, why, and the choices you have.">
+  <meta property="og:title" content="Betoku Privacy Policy">
+  <meta property="og:description" content="How Betoku handles your data: what we collect, why, and the choices you have.">
+  <meta property="og:url" content="https://betoku.app/privacy.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://betoku.app/betoku-social-1200x630.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0f1424">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23f5b942'/><circle cx='50' cy='50' r='32' fill='none' stroke='%230f1424' stroke-width='6' stroke-dasharray='10 8'/><text x='50' y='64' font-size='40' font-family='Arial' font-weight='bold' text-anchor='middle' fill='%230f1424'>B</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1424;
+      --bg-2: #161d33;
+      --card: #1b2340;
+      --line: #2a3459;
+      --text: #eef1fb;
+      --muted: #9aa3c4;
+      --gold: #f5b942;
+      --gold-2: #ffd77a;
+      --green: #3ddc97;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .narrow { max-width: 760px; margin: 0 auto; }
 
+    /* Nav */
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 22px; letter-spacing: -0.02em; color: var(--text); }
+    .logo:hover { text-decoration: none; }
+    .logo-chip {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--gold); border: 4px dashed var(--bg); outline: 3px solid var(--gold);
+      display: grid; place-items: center; color: var(--bg); font-size: 14px; font-weight: 800;
+    }
+    .nav-links { display: flex; gap: 26px; font-size: 15px; }
+    .nav-links a { color: var(--muted); transition: color .2s; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+    /* Page header */
+    .page-head { padding: 56px 0 36px; }
+    .eyebrow {
+      display: inline-block; font-size: 13px; font-weight: 600;
+      color: var(--gold); background: rgba(245,185,66,.1); border: 1px solid rgba(245,185,66,.3);
+      padding: 6px 12px; border-radius: 999px; margin-bottom: 22px;
+    }
+    h1 { font-size: clamp(36px, 5vw, 54px); line-height: 1.08; letter-spacing: -0.035em; font-weight: 800; }
+    .updated { color: var(--muted); font-size: 15px; margin-top: 14px; }
+
+    /* Summary box */
+    .summary {
+      background: linear-gradient(160deg, var(--card), var(--bg-2));
+      border: 1px solid var(--line); border-radius: 22px; padding: 28px 30px; margin-bottom: 56px;
+    }
+    .summary h2 { font-size: 20px; margin-bottom: 14px; letter-spacing: -0.02em; }
+    .summary ul { list-style: none; }
+    .summary li { position: relative;
